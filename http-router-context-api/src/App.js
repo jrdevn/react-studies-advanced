@@ -15,7 +15,7 @@ function App() {
   const [price, setPrice] = useState("")
 
   //custom 
-  const {data: items} = useFetch(urlBase);
+  const {data: items, httpConfig} = useFetch(urlBase);
 
 
   // resgatando dados
@@ -40,19 +40,22 @@ function App() {
       price,
     };
 
-    const res = await fetch(urlBase,  {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(product)
-    });
+    // const res = await fetch(urlBase,  {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify(product)
+    // });
 
-    // carregamento dinâmico
-    const addedProduct = await res.json();
-    setProducts((previousProduct) => [...previousProduct, addedProduct ]); // pega lista antiga e adiciona prod
-                                                                          // q veio da resposta da api
+    // // carregamento dinâmico
+    // const addedProduct = await res.json();
+    // setProducts((previousProduct) => [...previousProduct, addedProduct ]); // pega lista antiga e adiciona prod
+    //                                                                       // q veio da resposta da api
 
+    // refatorandoPost
+
+    httpConfig(product, 'POST')
     // reseta form
     setName('');
     setPrice('');

@@ -44,6 +44,16 @@
       "name": "Cadeira ",
       "price": "13",
       "id": 9
+    },
+    {
+      "name": "JHONATA J O SANTOS",
+      "price": "12",
+      "id": 10
+    },
+    {
+      "name": "Beleza",
+      "price": "13",
+      "id": 11
     }
   ]
 }
